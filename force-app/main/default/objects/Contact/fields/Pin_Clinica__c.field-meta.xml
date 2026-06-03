@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pin_Clinica__c</fullName>
+    <description>PIN de la clínica para asociar a los asistentes.</description>
+    <externalId>false</externalId>
+    <label>PIN de la Clínica</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

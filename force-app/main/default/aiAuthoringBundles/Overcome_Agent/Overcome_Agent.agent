@@ -1,0 +1,312 @@
+system:
+    instructions: |
+        Eres el asistente virtual de Overcome, una plataforma especializada en gestión
+        de centros médicos y empresas del sector salud.
+        Tu tono es profesional, amable y cercano. Siempre te comunicas en español.
+        Tu objetivo principal en esta etapa es identificar al usuario por su correo
+        electrónico y personalizar la conversación con sus datos del CRM, o bien
+        registrarlo si es un usuario nuevo.
+        Nunca improvises datos del usuario. Solo usa información retornada por las acciones.
+    messages:
+        welcome: |
+            ¡Bienvenido al asistente virtual de Overcome!
+            Antes de comenzar, y por tu seguridad, ¿aceptas nuestra política de tratamiento de datos personales para poder gestionar tu solicitud?
+        error: "Lo sentimos, ha ocurrido un error inesperado. Por favor intenta de nuevo."
+
+config:
+    agent_label: "Overcome Agente Virtual"
+    developer_name: "Overcome_Agent"
+    description: "Agente virtual de Overcome que identifica al usuario por correo electrónico, lo saluda con sus datos del CRM si ya existe, o recopila los datos mínimos para registrarlo como nueva Account y Contact en Salesforce."
+    agent_type: "AgentforceServiceAgent"
+    default_agent_user: "asistente_virtual@00dfn00000cqlav510206204.ext"
+    agent_version: ""
+    enable_enhanced_event_logs: False
+
+variables:
+    customerEmail: mutable string
+        label: "Correo del Cliente"
+        description: "Correo electrónico proporcionado por el usuario al inicio de la conversación."
+        visibility: "Internal"
+
+    contactFound: mutable boolean = False
+        label: "Cliente Encontrado"
+        description: "True si se encontró un Contact con el correo proporcionado en Salesforce."
+        visibility: "Internal"
+
+    contactId: mutable string
+        label: "ID del Contacto"
+        description: "Salesforce Record ID del Contact identificado."
+        visibility: "Internal"
+
+    contactName: mutable string
+        label: "Nombre del Contacto"
+        description: "Nombre completo del Contact encontrado en el CRM."
+        visibility: "Internal"
+
+    accountId: mutable string
+        label: "ID de la Cuenta"
+        description: "Salesforce Record ID de la Account asociada al Contact."
+        visibility: "Internal"
+
+    accountName: mutable string
+        label: "Nombre de la Empresa"
+        description: "Nombre de la empresa o centro médico asociado al Contact."
+        visibility: "Internal"
+
+    registroCompletado: mutable boolean = False
+        label: "Registro Completado"
+        description: "True cuando se completó exitosamente el registro de un nuevo cliente."
+        visibility: "Internal"
+
+start_agent agent_router:
+    label: "Agent Router"
+    description: "Evalúa el estado de identificación del usuario y lo dirige al subagent apropiado en cada turno de la conversación."
+    reasoning:
+        instructions: ->
+            | Eres el enrutador principal de la conversación. Sigue ESTRICTAMENTE estas reglas:
+            | 1. Al inicio de la conversación, SIEMPRE debes enrutar hacia "IdentificacionCliente".
+            | 2. NUNCA enrutes hacia "BienvenidaCliente" o "RegistroNuevoCliente" si el usuario recién está dando su correo.
+            | 3. Solo puedes enrutar a "BienvenidaCliente" si la variable "contactFound" es verdadera o si "registroCompletado" es verdadero.
+            | 4. Solo puedes enrutar a "RegistroNuevoCliente" si la variable "contactFound" es falsa DESPUÉS de que se haya ejecutado la búsqueda.
+        actions:
+            go_to_IdentificacionCliente: @utils.transition to @topic.IdentificacionCliente
+            go_to_BienvenidaCliente: @utils.transition to @topic.BienvenidaCliente
+            go_to_RegistroNuevoCliente: @utils.transition to @topic.RegistroNuevoCliente
+            go_to_Escalation: @utils.transition to @subagent.Escalation
+
+topic IdentificacionCliente:
+    label: "Identificacion de Cliente"
+    description: "Solicita el correo electrónico al usuario y verifica si existe como Contact en Salesforce. Si existe, personaliza el saludo. Si no existe, inicia el proceso de registro."
+    reasoning:
+        instructions: ->
+            | MUY IMPORTANTE: Antes de continuar con cualquier proceso, asegúrate de que el usuario haya aceptado la política de tratamiento de datos personales.
+            | Si el usuario responde que NO acepta o evade la pregunta, explícale amablemente que es obligatorio para poder atenderlo y vuelve a preguntarle.
+            | Si el usuario SÍ acepta, agradécele y procede inmediatamente a solicitar su correo electrónico.
+            | Si el usuario ya proporcionó su correo pero no ha aceptado, prioriza obtener su aceptación.
+            | 
+            | Tu única tarea técnica en este subagent es obtener el correo electrónico del usuario para verificar si está registrado en nuestro sistema.
+            | Una vez que tengas el consentimiento Y el correo, usa la acción IdentificarClientePorCorreo para buscarlo.
+            | MUY IMPORTANTE: Cuando termine la acción, evalúa el resultado "contactFound":
+            | - Si "contactFound" es VERDADERO, la identificación fue exitosa. Da por concluido este paso y haz la transición hacia "BienvenidaCliente".
+            | - Si "contactFound" es FALSO, significa que es un usuario nuevo. Da por concluido este paso y haz la transición hacia "RegistroNuevoCliente".
+            | No hagas preguntas adicionales hasta tener el resultado de la búsqueda.
+        actions:
+            IdentificarClientePorCorreo: @actions.IdentificarClientePorCorreo
+                with emailAddress = ...
+                set @variables.contactFound    = @outputs.contactFound
+                set @variables.contactId       = @outputs.contactId
+                set @variables.contactName     = @outputs.contactName
+                set @variables.accountId       = @outputs.accountId
+                set @variables.accountName     = @outputs.accountName
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    actions:
+        IdentificarClientePorCorreo:
+            description: "Busca un cliente en Salesforce por su correo electrónico. Retorna si existe y sus datos personales y de empresa para personalizar la bienvenida del agente."
+            label: "Identificar Cliente por Correo"
+            require_user_confirmation: False
+            include_in_progress_indicator: True
+            progress_indicator_message: "Verificando tu información..."
+            source: "Overcome_Identificar_Cliente"
+            target: "flow://Overcome_IdentificarCliente"
+            inputs:
+                "emailAddress": string
+                    description: "Correo electrónico proporcionado por el usuario para buscarlo en el CRM de Salesforce."
+                    label: "Correo Electronico"
+                    is_required: True
+                    is_user_input: True
+                    complex_data_type_name: "lightning__textType"
+            outputs:
+                "contactFound": boolean
+                    description: "Indica si se encontró un Contact con el correo proporcionado."
+                    label: "Cliente Encontrado"
+                    is_displayable: False
+                    filter_from_agent: True
+                "contactId": string
+                    description: "Salesforce ID del Contact encontrado."
+                    label: "ID del Contacto"
+                    is_displayable: False
+                    filter_from_agent: True
+                "contactName": string
+                    description: "Nombre completo del Contact encontrado en Salesforce."
+                    label: "Nombre del Contacto"
+                    is_displayable: False
+                    filter_from_agent: True
+                "accountId": string
+                    description: "Salesforce ID de la Account asociada al Contact."
+                    label: "ID de la Cuenta"
+                    is_displayable: False
+                    filter_from_agent: True
+                "accountName": string
+                    description: "Nombre de la empresa o centro médico asociado al cliente."
+                    label: "Nombre de la Empresa"
+                    is_displayable: False
+                    filter_from_agent: True
+                "mensajeBienvenida": string
+                    description: "Mensaje de bienvenida personalizado generado por el sistema para el cliente."
+                    label: "Mensaje de Bienvenida"
+                    is_displayable: True
+                    filter_from_agent: False
+
+topic BienvenidaCliente:
+    label: "Bienvenida Cliente Existente"
+    description: "Saluda al cliente de manera personalizada usando los datos encontrados en el CRM de Salesforce. Solo se activa cuando el cliente ya existe en el sistema."
+    reasoning:
+        instructions: ->
+            | El cliente ha sido identificado exitosamente en nuestro CRM.
+            | Salúdalo por su nombre: {!@variables.contactName}.
+            | Menciona que es un gusto verle de parte de su empresa (si la hay).
+            | Pregúntale en qué le puedes ayudar hoy de manera amable y profesional.
+            | Mantén un tono cercano y personalizado durante toda la conversación.
+            | No solicites de nuevo el correo electrónico u otros datos de identificación.
+
+topic RegistroNuevoCliente:
+    label: "Registro de Nuevo Cliente"
+    description: "Cuando el correo electrónico no está registrado en Salesforce, este subagent recopila los datos mínimos del nuevo cliente (empresa y contacto) y los registra como Account y Contact en el CRM."
+    reasoning:
+        instructions: ->
+            |El correo electrónico proporcionado no está registrado en nuestro sistema.
+             Informa al usuario de manera amable que no encontraste un registro asociado a su correo.
+             Explícale que para ayudarle mejor necesitas registrarlo en el sistema.
+             Pregúntale: "¿Eres Médico o Asistente del Médico?"
+             - Si la ruta es MÉDICO:
+               1. Pregunta Nombres, Apellidos, Celular, Sexo y Especialidad. Espera su respuesta.
+               2. Luego pregunta: "¿Cuál es el nombre de tu Clínica o Empresa? (Si eres profesional independiente, por favor indícalo)".
+               3. Si responde que es independiente, usa internamente "Consultorio Dr. [Nombres] [Apellidos]" como accountName.
+             - Si la ruta es ASISTENTE:
+               1. Pregunta Nombres, Apellidos, Teléfono y PIN de clínica (este último es opcional). No preguntes por empresa.
+             
+             Una vez que tengas TODOS los datos de la ruta elegida, DEBES EJECUTAR INMEDIATAMENTE la acción Crear_Cuenta_y_Contacto.
+             NO pidas confirmación, ejecuta la acción directamente.
+             NO respondas con texto diciendo que lo vas a hacer o que está en proceso. Llama a la herramienta Crear_Cuenta_y_Contacto y espera su resultado.
+             Solo después de que la herramienta retorne el resultado, informa al usuario basándote en el mensaje devuelto por la herramienta.
+             MUY IMPORTANTE: Cuando el registro sea exitoso (tengas un accountId y contactId):
+             1. El contexto de cliente ahora es "verdadero" (el cliente ya está creado y encontrado).
+             2. Da por finalizado este paso de registro y haz la transición hacia "BienvenidaCliente" para darle el saludo formal.
+        actions:
+            Crear_Cuenta_y_Contacto: @actions.Crear_Cuenta_y_Contacto
+                with tipoUsuario = ...
+                with accountName = ...
+                with contactEmail = ...
+                with contactFirstName = ...
+                with contactLastName = ...
+                with contactPhone = ...
+                with sexo = ...
+                with especialidad = ...
+                with pinClinica = ...
+                set @variables.accountId = @outputs.accountId
+                set @variables.contactId = @outputs.contactId
+                set @variables.registroCompletado = @outputs.exitoso
+
+
+
+
+
+    actions:
+        Crear_Cuenta_y_Contacto:
+            label: "Crear Cuenta y Contacto"
+            description: "Registra un nuevo cliente en Salesforce creando una Account (empresa o centro médico) y un Contact asociado."
+            target: "flow://Overcome_CrearCuentaYContacto"
+            inputs:
+                tipoUsuario: string
+                    label: "tipoUsuario"
+                    is_required: True
+                    complex_data_type_name: "lightning__textType"
+                    description: "Ruta de registro elegida por el usuario: 'Médico' o 'Asistente'."
+                accountName: string
+                    label: "accountName"
+                    is_required: False
+                    complex_data_type_name: "lightning__textType"
+                    description: "Nombre de la empresa o consultorio. Para asistentes, déjalo vacío o usa 'Asistentes por Asignar'."
+                contactEmail: string
+                    label: "contactEmail"
+                    is_required: True
+                    complex_data_type_name: "lightning__textType"
+                    description: "Correo electrónico del contacto. Debe ser el mismo que el usuario proporcionó al inicio de la conversación."
+                contactFirstName: string
+                    label: "contactFirstName"
+                    is_required: False
+                    complex_data_type_name: "lightning__textType"
+                    description: "Primer nombre de la persona de contacto a registrar."
+                contactLastName: string
+                    label: "contactLastName"
+                    is_required: False
+                    complex_data_type_name: "lightning__textType"
+                    description: "Apellido de la persona de contacto."
+                contactPhone: string
+                    label: "contactPhone"
+                    is_required: True
+                    complex_data_type_name: "lightning__textType"
+                    description: "Número de teléfono de la persona de contacto."
+                sexo: string
+                    label: "sexo"
+                    is_required: False
+                    complex_data_type_name: "lightning__textType"
+                    description: "Sexo del contacto (requerido para ruta Médico: Hombre, Mujer, Intersexual)."
+                especialidad: string
+                    label: "especialidad"
+                    is_required: False
+                    complex_data_type_name: "lightning__textType"
+                    description: "Especialidad médica (requerido para ruta Médico)."
+                pinClinica: string
+                    label: "pinClinica"
+                    is_required: False
+                    complex_data_type_name: "lightning__textType"
+                    description: "PIN de la clínica (opcional para ruta Asistente)."
+            outputs:
+                accountId: string
+                    label: "accountId"
+                    complex_data_type_name: "lightning__textType"
+                    is_displayable: False
+                    filter_from_agent: True
+                    description: "ID de Salesforce de la Account creada."
+                contactId: string
+                    label: "contactId"
+                    complex_data_type_name: "lightning__textType"
+                    is_displayable: False
+                    filter_from_agent: True
+                    description: "ID de Salesforce del Contact creado."
+                exitoso: boolean
+                    label: "exitoso"
+                    complex_data_type_name: "lightning__booleanType"
+                    is_displayable: False
+                    filter_from_agent: True
+                    description: "Indica si el registro fue exitoso (Verdadero o Falso)."
+                mensajeResult: string
+                    label: "mensajeResult"
+                    complex_data_type_name: "lightning__textType"
+                    is_displayable: True
+                    filter_from_agent: False
+                    description: "Mensaje de confirmación o error para mostrar al usuario."
+            include_in_progress_indicator: True
+            progress_indicator_message: "Registrando tu información en el sistema..."
+
+subagent Escalation:
+    label: "Escalation"
+    description: "Handles requests from users who want to transfer or escalate their conversation to a live human agent."
+    reasoning:
+        instructions: ->
+            | If a user explicitly asks to transfer to a live agent, escalate the conversation.
+              If escalation to a live agent fails for any reason, acknowledge the issue and ask the user whether they would like to log a support case instead.
+        actions:
+            Escalar: @utils.escalate
+                description: "Escalar a agente humano"
+        # No reasoning actions in this subagent
+
+connection messaging:
+    outbound_route_type: "OmniChannelFlow"
+    outbound_route_name: "flow://"
+    escalation_message: "Un momento, estoy transfiriendo nuestra conversación para aportarle más ayuda."
+    adaptive_response_allowed: True

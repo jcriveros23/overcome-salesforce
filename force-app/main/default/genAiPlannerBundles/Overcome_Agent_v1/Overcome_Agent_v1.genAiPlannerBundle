@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Agente virtual de Overcome que identifica al usuario por correo electrónico, lo saluda con sus datos del CRM si ya existe, o recopila los datos mínimos para registrarlo como nueva Account y Contact en Salesforce.</description>
+    <localTopicLinks>
+        <genAiPluginName>BienvenidaCliente_16jbV0000003pE5</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>IdentificacionCliente_16jbV0000003pE5</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>RegistroNuevoCliente_16jbV0000003pE5</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>agent_router_16jbV0000003pE5</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>agent_router_16jbV0000003pE5</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Evalúa el estado de identificación del usuario y lo dirige al subagent apropiado en cada turno de la conversación.</description>
+        <developerName>agent_router_16jbV0000003pE5</developerName>
+        <genAiPluginInstructions>
+            <description>Eres el asistente virtual de Overcome, una plataforma especializada en gestión
+de centros médicos y empresas del sector salud.
+Tu tono es profesional, amable y cercano. Siempre te comunicas en español.
+Tu objetivo principal en esta etapa es identificar al usuario por su correo
+electrónico y personalizar la conversación con sus datos del CRM, o bien
+registrarlo si es un usuario nuevo.
+Nunca improvises datos del usuario. Solo usa información retornada por las acciones.</description>
+            <developerName>instruction0_179bV000000GVmG</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179bV000000GVmG</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>BienvenidaCliente_16jbV0000003pE5</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Saluda al cliente de manera personalizada usando los datos encontrados en el CRM de Salesforce. Solo se activa cuando el cliente ya existe en el sistema.</description>
+        <developerName>BienvenidaCliente_16jbV0000003pE5</developerName>
+        <genAiPluginInstructions>
+            <description>Eres el asistente virtual de Overcome, una plataforma especializada en gestión
+de centros médicos y empresas del sector salud.
+Tu tono es profesional, amable y cercano. Siempre te comunicas en español.
+Tu objetivo principal en esta etapa es identificar al usuario por su correo
+electrónico y personalizar la conversación con sus datos del CRM, o bien
+registrarlo si es un usuario nuevo.
+Nunca improvises datos del usuario. Solo usa información retornada por las acciones.</description>
+            <developerName>instruction0_179bV000000GVmF</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179bV000000GVmF</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>BienvenidaCliente</localDeveloperName>
+        <masterLabel>Bienvenida Cliente Existente</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>IdentificacionCliente_16jbV0000003pE5</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Solicita el correo electrónico al usuario y verifica si existe como Contact en Salesforce. Si existe, personaliza el saludo. Si no existe, inicia el proceso de registro.</description>
+        <developerName>IdentificacionCliente_16jbV0000003pE5</developerName>
+        <genAiPluginInstructions>
+            <description>Eres el asistente virtual de Overcome, una plataforma especializada en gestión
+de centros médicos y empresas del sector salud.
+Tu tono es profesional, amable y cercano. Siempre te comunicas en español.
+Tu objetivo principal en esta etapa es identificar al usuario por su correo
+electrónico y personalizar la conversación con sus datos del CRM, o bien
+registrarlo si es un usuario nuevo.
+Nunca improvises datos del usuario. Solo usa información retornada por las acciones.</description>
+            <developerName>instruction0_179bV000000GVmE</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179bV000000GVmE</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>IdentificarClientePorCorreo_179bV000000GVmE</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>IdentificarClientePorCorreo_179bV000000GVmE</fullName>
+            <description>Busca un cliente en Salesforce por su correo electrónico. Retorna si existe y sus datos personales y de empresa para personalizar la bienvenida del agente.</description>
+            <developerName>IdentificarClientePorCorreo_179bV000000GVmE</developerName>
+            <invocationTarget>Overcome_IdentificarCliente</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>IdentificarClientePorCorreo</localDeveloperName>
+            <masterLabel>Identificar Cliente por Correo</masterLabel>
+            <progressIndicatorMessage>Verificando tu información...</progressIndicatorMessage>
+            <source>Overcome_Identificar_Cliente</source>
+        </localActions>
+        <localDeveloperName>IdentificacionCliente</localDeveloperName>
+        <masterLabel>Identificacion de Cliente</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>RegistroNuevoCliente_16jbV0000003pE5</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Cuando el correo electrónico no está registrado en Salesforce, este subagent recopila los datos mínimos del nuevo cliente (empresa y contacto) y los registra como Account y Contact en el CRM.</description>
+        <developerName>RegistroNuevoCliente_16jbV0000003pE5</developerName>
+        <genAiPluginInstructions>
+            <description>Eres el asistente virtual de Overcome, una plataforma especializada en gestión
+de centros médicos y empresas del sector salud.
+Tu tono es profesional, amable y cercano. Siempre te comunicas en español.
+Tu objetivo principal en esta etapa es identificar al usuario por su correo
+electrónico y personalizar la conversación con sus datos del CRM, o bien
+registrarlo si es un usuario nuevo.
+Nunca improvises datos del usuario. Solo usa información retornada por las acciones.</description>
+            <developerName>instruction0_179bV000000GVmD</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179bV000000GVmD</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Crear_Cuenta_y_Contacto_179bV000000GVmD</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Crear_Cuenta_y_Contacto_179bV000000GVmD</fullName>
+            <description>Registra un nuevo cliente en Salesforce creando una Account (empresa o centro médico) y un Contact asociado.</description>
+            <developerName>Crear_Cuenta_y_Contacto_179bV000000GVmD</developerName>
+            <invocationTarget>Overcome_CrearCuentaYContacto</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Crear_Cuenta_y_Contacto</localDeveloperName>
+            <masterLabel>Crear Cuenta y Contacto</masterLabel>
+            <progressIndicatorMessage>Registrando tu información en el sistema...</progressIndicatorMessage>
+        </localActions>
+        <localDeveloperName>RegistroNuevoCliente</localDeveloperName>
+        <masterLabel>Registro de Nuevo Cliente</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>Overcome Agente Virtual</masterLabel>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

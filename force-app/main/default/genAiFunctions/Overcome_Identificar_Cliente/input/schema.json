@@ -1,0 +1,14 @@
+{
+  "required" : [ "emailAddress" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "emailAddress" : {
+      "title" : "emailAddress",
+      "description" : "Correo electrónico proporcionado por el usuario para buscarlo en el CRM de Salesforce.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

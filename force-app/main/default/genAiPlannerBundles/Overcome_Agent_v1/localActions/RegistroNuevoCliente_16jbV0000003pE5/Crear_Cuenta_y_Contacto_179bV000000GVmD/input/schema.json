@@ -1,0 +1,70 @@
+{
+  "required" : [ "tipoUsuario", "contactEmail", "contactPhone" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "accountName" : {
+      "title" : "accountName",
+      "description" : "Nombre de la empresa o consultorio. Para asistentes, déjalo vacío o usa 'Asistentes por Asignar'.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "contactEmail" : {
+      "title" : "contactEmail",
+      "description" : "Correo electrónico del contacto. Debe ser el mismo que el usuario proporcionó al inicio de la conversación.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "contactFirstName" : {
+      "title" : "contactFirstName",
+      "description" : "Primer nombre de la persona de contacto a registrar.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "contactLastName" : {
+      "title" : "contactLastName",
+      "description" : "Apellido de la persona de contacto.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "contactPhone" : {
+      "title" : "contactPhone",
+      "description" : "Número de teléfono de la persona de contacto.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "especialidad" : {
+      "title" : "especialidad",
+      "description" : "Especialidad médica (requerido para ruta Médico).",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "pinClinica" : {
+      "title" : "pinClinica",
+      "description" : "PIN de la clínica (opcional para ruta Asistente).",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "sexo" : {
+      "title" : "sexo",
+      "description" : "Sexo del contacto (requerido para ruta Médico: Hombre, Mujer, Intersexual).",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "tipoUsuario" : {
+      "title" : "tipoUsuario",
+      "description" : "Ruta de registro elegida por el usuario: 'Médico' o 'Asistente'.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

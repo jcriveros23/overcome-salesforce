@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Especialidad__c</fullName>
+    <description>Especialidad médica del contacto.</description>
+    <label>Especialidad</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>General</fullName>
+                <default>false</default>
+                <label>General</label>
+            </value>
+            <value>
+                <fullName>Pediatría</fullName>
+                <default>false</default>
+                <label>Pediatría</label>
+            </value>
+            <value>
+                <fullName>Cardiología</fullName>
+                <default>false</default>
+                <label>Cardiología</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

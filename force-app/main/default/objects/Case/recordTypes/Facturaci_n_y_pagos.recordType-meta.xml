@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Facturaci_n_y_pagos</fullName>
+    <active>true</active>
+    <businessProcess>Facturación y pagos</businessProcess>
+    <label>Facturación y pagos</label>
+    <picklistValues>
+        <picklist>Opciones_de_servicio__c</picklist>
+        <values>
+            <fullName>%C2%BFQué es y cómo aplicar%3F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Acceso y autentificación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Administración de mis medicos recomendados</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agenda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Android</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apartados especiales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App móvil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aviso de privacidad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Añadir usuarios</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambio de Administrador %28Clínicas%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambio de contraseña</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambio de correo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambio de método de pago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambio de tarjeta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cambios de plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Campos de cumplimiento normativo NOM 024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Campos de validación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelacion del método de pago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelación del servicio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Certificado NOM 024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clínicas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Conocer el proceso de validación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consentimientos Informados</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Creación de clínica prueba</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cuenta en suspensión por falta de pago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cumplimiento legal de la NOM 004 y NOM 024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Demos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Derechos ARCO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Documentos o impresión</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eliminación de cuenta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Estatus de solicitud</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Estatus de validación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expediente del paciente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facturación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facturación electrónica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Formas de pago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Información sobre reembolsos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integraciones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integridad de datos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lentitud general</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Limitantes y restricciones del programa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lista de pacientes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mejora a funcionalidad existente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Médico a paciente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Módulo de asistente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Módulo de impresión</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Módulo lento</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Navegador %2F compatibilidad %28adblock%2C versión%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nueva función</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Otros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pantalla en blanco</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personalizar secciones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Precios</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Productos adicionales %28Folios%2Fminutos de videoconsulta%2FSMS%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Programas de beneficios y promociones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promociones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reembolsos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roles</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seguridad de la información</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sistema a Médico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sofia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tipo de planes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Términos y condiciones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UX y diseño</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verificación en 2 pasos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vigencia de beca</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vigencia del beneficio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>iOS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facebook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Teléfono</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twitter</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>Alta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Baja</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Media</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason</picklist>
+        <values>
+            <fullName>El usuario no asistió a la capacitación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Funcionalidad compleja</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instrucciones poco claras</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nuevo problema</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Problema existente</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Subcategor_a__c</picklist>
+        <values>
+            <fullName>Aclaraciones generales sobre pagos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Actualización o carga de documentos %28informes médicos%2C consentimientos informados%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agenda</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agenda del médico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agenda del médico %28Configuración y funcionamiento%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agenda en línea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Agenda en línea %28Configuración y funcionamiento%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Apartado de especialidad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>App móvil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Archivos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Asistente virtual</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Avisos de cobro</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bitácora</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Canalizar al área de soporte Técnico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chat</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cirugía</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cirugías</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cobertura</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cobro rechazado o no procesado %28No puedo pagar%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cobros dobles</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cobros en línea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cobros incorrectos %28MJ%2C Promociones%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Comentarios generales no clasificados en las categorías anteriores</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compartir con paciente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Configuración</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Consulta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Correción datos fiscales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cómo la descargo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Datos del Paciente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diagnosticador</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dictado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digitalización del Expediente Clínico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Directorio Médico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diseño de interfaz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Disputas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicidad de información</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eliminado de información</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eliminado de pacientes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Envío de facturas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Equivalencias</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Error al generar PDF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Error de impresión</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Error de información</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Error en carga de CSD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Error en factura médico-paciente %28nivel sistema%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Error en facturación de Eleonor al médico %28nivel sistema%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Error en sinconización de agenda entre ambientes %28iOS - Android%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Error en sincronización con Google Calendar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Estadísticas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Estudios de laboratorio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expediente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Expediente del paciente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Experiencia de usuario</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Facturación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fallo en carga de archivos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Filtros avanzados</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flujo de navegación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Folios de regalo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Funcionamiento del módulo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Funciones o alcance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ginecología</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Identificador de pacientes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Impresión</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Impresión %28receta%2C laboratorios%2C formatos%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Impresión diagnóstica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Información - Historial Clínica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Información para pacientes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Informes Médicos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ingreso</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inicio de sesión</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integración Helea</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Integración Medikit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Limitantes y restricciones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Limitantes y restricciones del módulo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lista de pacientes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Médicos Jóvenes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Módulo de Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Otras personalizaciones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Otros</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagos por transferencia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagué y no se activo mi membresía</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parámetros de monitoreo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pediatría</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Perfil del Médico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Permisos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personalización de conceptos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promociones de temporada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qué es y cómo funciona</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Receta Electrónica</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recetas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Recomendados</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reembolso por cancelación de servicio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reembolso por pago duplicado</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Refacturación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registro de datos en factura</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registro de datos fiscales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Registro de pacientes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Reportes y Estadísticas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Respaldos</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restablecer contraseña</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resumen de paciente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sofia</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solicitud de complementos de pago</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unificar pacientes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Videoconsulta</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Facturación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pagos y reembolsos</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

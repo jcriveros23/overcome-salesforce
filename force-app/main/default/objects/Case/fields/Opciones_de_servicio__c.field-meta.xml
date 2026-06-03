@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opciones_de_servicio__c</fullName>
+    <label>Opciones de servicio</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Personalizar secciones</fullName>
+                <default>false</default>
+                <label>Personalizar secciones</label>
+            </value>
+            <value>
+                <fullName>Agenda</fullName>
+                <default>false</default>
+                <label>Agenda</label>
+            </value>
+            <value>
+                <fullName>Apartados especiales</fullName>
+                <default>false</default>
+                <label>Apartados especiales</label>
+            </value>
+            <value>
+                <fullName>Expediente del paciente</fullName>
+                <default>false</default>
+                <label>Expediente del paciente</label>
+            </value>
+            <value>
+                <fullName>Módulo de impresión</fullName>
+                <default>false</default>
+                <label>Módulo de impresión</label>
+            </value>
+            <value>
+                <fullName>Lista de pacientes</fullName>
+                <default>false</default>
+                <label>Lista de pacientes</label>
+            </value>
+            <value>
+                <fullName>Clínicas</fullName>
+                <default>false</default>
+                <label>Clínicas</label>
+            </value>
+            <value>
+                <fullName>Módulo de asistente</fullName>
+                <default>false</default>
+                <label>Módulo de asistente</label>
+            </value>
+            <value>
+                <fullName>App móvil</fullName>
+                <default>false</default>
+                <label>App móvil</label>
+            </value>
+            <value>
+                <fullName>Facturación</fullName>
+                <default>false</default>
+                <label>Facturación</label>
+            </value>
+            <value>
+                <fullName>Sofia</fullName>
+                <default>false</default>
+                <label>Sofia</label>
+            </value>
+            <value>
+                <fullName>Otros</fullName>
+                <default>false</default>
+                <label>Otros</label>
+            </value>
+            <value>
+                <fullName>Precios</fullName>
+                <default>false</default>
+                <label>Precios</label>
+            </value>
+            <value>
+                <fullName>Tipo de planes</fullName>
+                <default>false</default>
+                <label>Tipo de planes</label>
+            </value>
+            <value>
+                <fullName>Demos</fullName>
+                <default>false</default>
+                <label>Demos</label>
+            </value>
+            <value>
+                <fullName>Productos adicionales (Folios/minutos de videoconsulta/SMS)</fullName>
+                <default>false</default>
+                <label>Productos adicionales (Folios/minutos de videoconsulta/SMS)</label>
+            </value>
+            <value>
+                <fullName>Promociones</fullName>
+                <default>false</default>
+                <label>Promociones</label>
+            </value>
+            <value>
+                <fullName>Formas de pago</fullName>
+                <default>false</default>
+                <label>Formas de pago</label>
+            </value>
+            <value>
+                <fullName>Cancelación del servicio</fullName>
+                <default>false</default>
+                <label>Cancelación del servicio</label>
+            </value>
+            <value>
+                <fullName>Cuenta en suspensión por falta de pago</fullName>
+                <default>false</default>
+                <label>Cuenta en suspensión por falta de pago</label>
+            </value>
+            <value>
+                <fullName>Información sobre reembolsos</fullName>
+                <default>false</default>
+                <label>Información sobre reembolsos</label>
+            </value>
+            <value>
+                <fullName>Estatus de validación</fullName>
+                <default>false</default>
+                <label>Estatus de validación</label>
+            </value>
+            <value>
+                <fullName>Campos de validación</fullName>
+                <default>false</default>
+                <label>Campos de validación</label>
+            </value>
+            <value>
+                <fullName>Conocer el proceso de validación</fullName>
+                <default>false</default>
+                <label>Conocer el proceso de validación</label>
+            </value>
+            <value>
+                <fullName>Cambios de plan</fullName>
+                <default>false</default>
+                <label>Cambios de plan</label>
+            </value>
+            <value>
+                <fullName>Cambio de tarjeta</fullName>
+                <default>false</default>
+                <label>Cambio de tarjeta</label>
+            </value>
+            <value>
+                <fullName>Cambio de método de pago</fullName>
+                <default>false</default>
+                <label>Cambio de método de pago</label>
+            </value>
+            <value>
+                <fullName>Cancelacion del método de pago</fullName>
+                <default>false</default>
+                <label>Cancelacion del método de pago</label>
+            </value>
+            <value>
+                <fullName>Campos de cumplimiento normativo NOM 024</fullName>
+                <default>false</default>
+                <label>Campos de cumplimiento normativo NOM 024</label>
+            </value>
+            <value>
+                <fullName>Cumplimiento legal de la NOM 004 y NOM 024</fullName>
+                <default>false</default>
+                <label>Cumplimiento legal de la NOM 004 y NOM 024</label>
+            </value>
+            <value>
+                <fullName>Certificado NOM 024</fullName>
+                <default>false</default>
+                <label>Certificado NOM 024</label>
+            </value>
+            <value>
+                <fullName>¿Qué es y cómo aplicar?</fullName>
+                <default>false</default>
+                <label>¿Qué es y cómo aplicar?</label>
+            </value>
+            <value>
+                <fullName>Estatus de solicitud</fullName>
+                <default>false</default>
+                <label>Estatus de solicitud</label>
+            </value>
+            <value>
+                <fullName>Vigencia de beca</fullName>
+                <default>false</default>
+                <label>Vigencia de beca</label>
+            </value>
+            <value>
+                <fullName>Vigencia del beneficio</fullName>
+                <default>false</default>
+                <label>Vigencia del beneficio</label>
+            </value>
+            <value>
+                <fullName>Limitantes y restricciones del programa</fullName>
+                <default>false</default>
+                <label>Limitantes y restricciones del programa</label>
+            </value>
+            <value>
+                <fullName>Administración de mis medicos recomendados</fullName>
+                <default>false</default>
+                <label>Administración de mis medicos recomendados</label>
+            </value>
+            <value>
+                <fullName>Roles</fullName>
+                <default>false</default>
+                <label>Roles</label>
+            </value>
+            <value>
+                <fullName>Creación de clínica prueba</fullName>
+                <default>false</default>
+                <label>Creación de clínica prueba</label>
+            </value>
+            <value>
+                <fullName>Añadir usuarios</fullName>
+                <default>false</default>
+                <label>Añadir usuarios</label>
+            </value>
+            <value>
+                <fullName>Verificación en 2 pasos</fullName>
+                <default>false</default>
+                <label>Verificación en 2 pasos</label>
+            </value>
+            <value>
+                <fullName>Cambio de correo</fullName>
+                <default>false</default>
+                <label>Cambio de correo</label>
+            </value>
+            <value>
+                <fullName>Cambio de contraseña</fullName>
+                <default>false</default>
+                <label>Cambio de contraseña</label>
+            </value>
+            <value>
+                <fullName>Cambio de Administrador (Clínicas)</fullName>
+                <default>false</default>
+                <label>Cambio de Administrador (Clínicas)</label>
+            </value>
+            <value>
+                <fullName>Eliminación de cuenta</fullName>
+                <default>false</default>
+                <label>Eliminación de cuenta</label>
+            </value>
+            <value>
+                <fullName>Seguridad de la información</fullName>
+                <default>false</default>
+                <label>Seguridad de la información</label>
+            </value>
+            <value>
+                <fullName>Consentimientos Informados</fullName>
+                <default>false</default>
+                <label>Consentimientos Informados</label>
+            </value>
+            <value>
+                <fullName>Aviso de privacidad</fullName>
+                <default>false</default>
+                <label>Aviso de privacidad</label>
+            </value>
+            <value>
+                <fullName>Términos y condiciones</fullName>
+                <default>false</default>
+                <label>Términos y condiciones</label>
+            </value>
+            <value>
+                <fullName>Derechos ARCO</fullName>
+                <default>false</default>
+                <label>Derechos ARCO</label>
+            </value>
+            <value>
+                <fullName>Sistema a Médico</fullName>
+                <default>false</default>
+                <label>Sistema a Médico</label>
+            </value>
+            <value>
+                <fullName>Médico a paciente</fullName>
+                <default>false</default>
+                <label>Médico a paciente</label>
+            </value>
+            <value>
+                <fullName>Pagos</fullName>
+                <default>false</default>
+                <label>Pagos</label>
+            </value>
+            <value>
+                <fullName>Reembolsos</fullName>
+                <default>false</default>
+                <label>Reembolsos</label>
+            </value>
+            <value>
+                <fullName>Nueva función</fullName>
+                <default>false</default>
+                <label>Nueva función</label>
+            </value>
+            <value>
+                <fullName>Mejora a funcionalidad existente</fullName>
+                <default>false</default>
+                <label>Mejora a funcionalidad existente</label>
+            </value>
+            <value>
+                <fullName>UX y diseño</fullName>
+                <default>false</default>
+                <label>UX y diseño</label>
+            </value>
+            <value>
+                <fullName>Documentos o impresión</fullName>
+                <default>false</default>
+                <label>Documentos o impresión</label>
+            </value>
+            <value>
+                <fullName>Facturación electrónica</fullName>
+                <default>false</default>
+                <label>Facturación electrónica</label>
+            </value>
+            <value>
+                <fullName>Acceso y autentificación</fullName>
+                <default>false</default>
+                <label>Acceso y autentificación</label>
+            </value>
+            <value>
+                <fullName>Integraciones</fullName>
+                <default>false</default>
+                <label>Integraciones</label>
+            </value>
+            <value>
+                <fullName>Integridad de datos</fullName>
+                <default>false</default>
+                <label>Integridad de datos</label>
+            </value>
+            <value>
+                <fullName>Programas de beneficios y promociones</fullName>
+                <default>false</default>
+                <label>Programas de beneficios y promociones</label>
+            </value>
+            <value>
+                <fullName>iOS</fullName>
+                <default>false</default>
+                <label>iOS</label>
+            </value>
+            <value>
+                <fullName>Android</fullName>
+                <default>false</default>
+                <label>Android</label>
+            </value>
+            <value>
+                <fullName>Lentitud general</fullName>
+                <default>false</default>
+                <label>Lentitud general</label>
+            </value>
+            <value>
+                <fullName>Módulo lento</fullName>
+                <default>false</default>
+                <label>Módulo lento</label>
+            </value>
+            <value>
+                <fullName>Pantalla en blanco</fullName>
+                <default>false</default>
+                <label>Pantalla en blanco</label>
+            </value>
+            <value>
+                <fullName>Navegador / compatibilidad (adblock, versión)</fullName>
+                <default>false</default>
+                <label>Navegador / compatibilidad (adblock, versión)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
